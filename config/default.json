@@ -1,0 +1,11 @@
+{
+  "cron": "0 * * * *",
+
+  "database": {
+    "host": "-",
+    "port": "-",
+    "username": "-",
+    "password": "-",
+    "database": "-"
+  }
+}
