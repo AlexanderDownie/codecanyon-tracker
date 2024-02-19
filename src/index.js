@@ -32,6 +32,12 @@ cron.schedule(cronSchedule, async () => {
             error_message: response.error || "",
             timestamp: response.timestamp
         });
+
+        // Update the last successful scrape timestamp
+        if (response.success) {
+            await db.updateLastSuccessfulScrape(listing.id, response.timestamp);
+        }
+
         console.log(`Scraped listing #${listing.id} - Data saved to database`)
     }
 

@@ -59,4 +59,15 @@ export default class Database {
             });
         })
     }
+
+    updateLastSuccessfulScrape(listingId, timestamp) {
+        return new Promise((resolve, reject) => {
+            let sql = "UPDATE listings SET last_successful_scrape = ? WHERE id = ?";
+
+            this.connection.query(sql, [timestamp, listingId], function (err, result) {
+                if (err) reject(err);
+                resolve(result);
+            });
+        })
+    }
 }
